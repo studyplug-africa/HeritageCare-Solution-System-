@@ -1,0 +1,33 @@
+-- create the Heritage_system database
+CREATE DATABASE Heritage_system;
+
+-- switch to the Heritage_system database
+USE Heritage_system;
+
+-- create the Users table
+CREATE TABLE dbo.Users
+(
+    UserId INT IDENTITY(1,1) PRIMARY KEY,
+    FullName NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(150) NOT NULL UNIQUE,
+    Password NVARCHAR(200) NOT NULL,
+    ContactNumber NVARCHAR(20) NOT NULL,
+    CreatedAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+-- create the HeritageSites table
+CREATE TABLE dbo.HeritageSites
+(
+    SiteId INT IDENTITY(1,1) PRIMARY KEY,
+    UserId INT NOT NULL,
+    SiteName NVARCHAR(150) NOT NULL,
+    Location NVARCHAR(200) NOT NULL,
+    Condition NVARCHAR(50) NOT NULL,
+    Description NVARCHAR(500) NULL,
+    CreatedAt DATETIME NOT NULL DEFAULT GETDATE(),
+    CONSTRAINT FK_HeritageSites_Users FOREIGN KEY (UserId) REFERENCES dbo.Users(UserId)
+);
+
+
+select * from [Users];
+select * from HeritageSites;

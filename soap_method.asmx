@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" Class="HeritageCare_Solution.soap_methods" %>
