@@ -1,0 +1,242 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.overview-welcome {
+    position: relative;
+    padding: 3rem 2rem;
+    background-image: url('../Images/cover.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+
+    .overview-welcome::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(20, 20, 20, .80) 0%, rgba(20, 20, 20, .45) 100%);
+    }
+
+.overview-welcome-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+}
+
+.overview-greeting {
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #9db8f5;
+    margin-bottom: .5rem;
+}
+
+.overview-welcome h1 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: .4rem;
+}
+
+.overview-welcome p {
+    font-size: .95rem;
+    color: rgba(255, 255, 255, .9);
+}
+
+.overview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background: var(--white);
+}
+
+.overview-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 1.2rem 1.4rem;
+}
+
+.overview-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    background: var(--grey-900);
+    color: var(--white);
+    border-radius: 5px;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.overview-card h3 {
+    font-size: 1.4rem;
+    color: var(--grey-900);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: .15rem;
+}
+
+.overview-card p {
+    font-size: .82rem;
+    color: var(--grey-500);
+}
+
+.overview-news {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem 2rem;
+    background: var(--white);
+}
+
+.overview-news-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .8rem;
+}
+
+    .overview-news-head h2 {
+        font-size: 1.1rem;
+        color: var(--grey-900);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+        .overview-news-head h2 i {
+            color: var(--accent);
+        }
+
+.overview-news-controls {
+    display: flex;
+    gap: .4rem;
+}
+
+.overview-nav-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--grey-200);
+    background: var(--white);
+    color: var(--grey-700);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+    .overview-nav-btn:hover {
+        background: var(--grey-900);
+        color: var(--white);
+        border-color: var(--grey-900);
+    }
+
+.overview-slider {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    background: var(--white);
+}
+
+.news-slide {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+}
+
+    .news-slide.active {
+        display: flex;
+    }
+
+.news-slide-image {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+}
+
+    .news-slide-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+.news-slide-text {
+    padding: 1.2rem 1.5rem;
+}
+
+    .news-slide-text h3 {
+        font-size: 1rem;
+        color: var(--grey-900);
+        font-weight: 600;
+        margin-bottom: .3rem;
+    }
+
+    .news-slide-text p {
+        font-size: .88rem;
+        color: var(--grey-500);
+        line-height: 1.55;
+    }
+
+.overview-dots {
+    display: flex;
+    justify-content: center;
+    gap: .4rem;
+    margin-top: .8rem;
+}
+
+.overview-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--grey-300);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: var(--transition);
+}
+
+    .overview-dot.active {
+        background: var(--grey-900);
+        width: 20px;
+        border-radius: 5px;
+    }
+
+@media (max-width: 768px) {
+    .overview-welcome,
+    .overview-cards,
+    .overview-news {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .overview-welcome {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .news-slide-image {
+        height: 180px;
+    }
+}
